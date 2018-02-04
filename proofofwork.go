@@ -12,7 +12,7 @@ var (
 	maxNonce = math.MaxInt64
 )
 
-const targetBits = 24
+const targetBits = 16
 
 // ProofOfWork represents a proof-of-work
 type ProofOfWork struct {
@@ -60,6 +60,7 @@ func (pow *ProofOfWork) Run() (int, []byte) {
 		hashInt.SetBytes(hash[:])
 
 		if hashInt.Cmp(pow.target) == -1 {
+			fmt.Print("done! nonce=", nonce)
 			break
 		} else {
 			nonce++
