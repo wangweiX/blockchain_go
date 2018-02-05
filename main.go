@@ -6,6 +6,7 @@ import (
 )
 
 func main() {
+
 	bc := NewBlockchain()
 
 	bc.AddBlock("Send 1 BTC to Ivan")
@@ -19,4 +20,5 @@ func main() {
 		fmt.Printf("PoW: %s\n", strconv.FormatBool(pow.Validate()))
 		fmt.Println()
 	}
+
 }

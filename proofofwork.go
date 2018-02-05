@@ -12,7 +12,7 @@ var (
 	maxNonce = math.MaxInt64
 )
 
-const targetBits = 16
+const targetBits = 50
 
 // ProofOfWork represents a proof-of-work
 type ProofOfWork struct {
@@ -24,9 +24,7 @@ type ProofOfWork struct {
 func NewProofOfWork(b *Block) *ProofOfWork {
 	target := big.NewInt(1)
 	target.Lsh(target, uint(256-targetBits))
-
 	pow := &ProofOfWork{b, target}
-
 	return pow
 }
 
@@ -54,6 +52,8 @@ func (pow *ProofOfWork) Run() (int, []byte) {
 	fmt.Printf("Mining the block containing \"%s\"\n", pow.block.Data)
 	for nonce < maxNonce {
 		data := pow.prepareData(nonce)
+
+		fmt.Printf("\r%x", data)
 
 		hash = sha256.Sum256(data)
 		fmt.Printf("\r%x", hash)
