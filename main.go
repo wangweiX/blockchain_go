@@ -7,6 +7,9 @@ import (
 
 func main() {
 
+	time := IntToHex(int64(1517810692));
+	fmt.Print("%s", time);
+
 	bc := NewBlockchain()
 
 	bc.AddBlock("Send 1 BTC to Ivan")
