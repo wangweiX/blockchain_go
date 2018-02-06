@@ -7,13 +7,6 @@ import (
 
 func main() {
 
-	time := IntToHex(int64(1517810692));
-
-	timestamp := []byte(strconv.FormatInt(1517810692, 10))
-
-	fmt.Print("%s", time);
-	fmt.Print("%s", timestamp);
-
 	bc := NewBlockchain()
 
 	bc.AddBlock("Send 1 BTC to Ivan")
